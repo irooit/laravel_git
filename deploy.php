@@ -11,7 +11,8 @@ set('repository', 'git@github.com:irooit/laravel_git.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
-
+// 设置保存的版本数
+set('keep_releases', 10);
 // Shared files/dirs between deploys
 add('shared_files', []);
 add('shared_dirs', []);
@@ -26,7 +27,11 @@ host('123.56.11.107')
     ->user('deployer')
     ->identityFile('~/.ssh/irooit')
     ->set('deploy_path', '/data/wwwroot');
-
+host('47.106.91.212')
+    ->user('irooit')
+    ->port(10018)
+    ->identityFile('~/.ssh/irooit')
+    ->set('deploy_path', '/data/wwwroot/laravel');
 // Tasks
 
 task('build', function () {
@@ -40,3 +45,9 @@ after('deploy:failed', 'deploy:unlock');
 
 //before('deploy:symlink', 'artisan:migrate');
 
+// 重载 php-fpm
+task('reload:php-fpm', function () {
+    run('sudo /usr/sbin/service php-fpm reload');
+});
+
+after('deploy', 'reload:php-fpm');
