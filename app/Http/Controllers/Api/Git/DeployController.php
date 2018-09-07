@@ -13,8 +13,10 @@ class DeployController extends Controller
 
     public function __invoke(Request $request)
     {
-        $all = $request->all();
-        Log::info('gitee', $all);
-        return $this->response->array($request->all());
+        $params = $request->all();
+        if (isset($params['password']) && 'Gitee' == $params['password']) {
+            shell_exec("cd /data/wwwroot/feisudu && git pull");
+        }
+        return $this->response->array(['data' => 'success']);
     }
 }
