@@ -14,7 +14,7 @@ set('git_tty', true);
 // 设置保存的版本数
 set('keep_releases', 10);
 // Shared files/dirs between deploys
-add('shared_files', []);
+add('shared_files', ['.env']);
 add('shared_dirs', []);
 
 // Writable dirs by web server
@@ -23,13 +23,10 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('123.56.11.107')
-    ->user('deployer')
-    ->identityFile('~/.ssh/irooit')
-    ->set('deploy_path', '/data/wwwroot');
 host('47.106.91.212')
+    ->stage('dev')
     ->user('irooit')
-    ->port(10018)
+    ->port(22)
     ->identityFile('~/.ssh/irooit')
     ->set('deploy_path', '/data/wwwroot/laravel');
 // Tasks
