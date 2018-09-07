@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+    $api->group(['prefix' => 'git', 'namespace' => 'App\Http\Controllers\Api\Git'], function ($api) {
+        $api->match(['post', 'get'], 'webhook', 'DeployController');
+    });
+
+});
