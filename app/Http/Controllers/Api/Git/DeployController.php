@@ -15,8 +15,8 @@ class DeployController extends Controller
     {
         $params = $request->all();
         if (isset($params['password']) && 'Gitee' == $params['password']) {
-            shell_exec("cd /data/wwwroot/feisudu && git pull");
+            $data = shell_exec("cd /data/wwwroot/feisudu && git pull");
         }
-        return $this->response->array(['data' => 'success']);
+        return $this->response->array(['data' => 'success'. time()]);
     }
 }

@@ -23,4 +23,7 @@ $api->version('v1', function ($api) {
         $api->match(['post', 'get'], 'webhook', 'DeployController');
     });
 
+    $api->group(['prefix' => 'test', 'namespace' => 'App\Http\Controllers\Api\Test'], function ($api) {
+        $api->match(['post', 'get'], 'index', 'TestController@index');
+    });
 });
