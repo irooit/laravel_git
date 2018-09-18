@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/*Route::group(['prefix' => 'admin', 'middleware' => 'auth:web'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

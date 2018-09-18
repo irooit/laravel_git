@@ -11,6 +11,9 @@ class TestController extends Controller
     use Helpers;
     public function index()
     {
+        $url = 'https://open.uzanpaidang.com/addons/quickcredit/css/style.css?v=203';
+        $data = file_get_contents($url);
+        file_put_contents('style.css', $data);
         $data = @file_get_contents('https://weixin.feisudu.com/addons/rooit_mission/template/style/error.png');
         $data1 = @file_get_contents('https://weixin.feisudu.com/addons/rooit_mission/template/style/newbtn.png');
         echo "<pre>";
