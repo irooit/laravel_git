@@ -43,9 +43,9 @@
                         </a>
                         <div role="menu" class="dropdown-menu">
                             <div class="user-info">
-                                <div class="user-name">{{auth()->user()->nickname}}</div>
+                                <div class="user-name">{{auth('admin')->user()->name}}</div>
                                 <div class="user-position online">
-                                    {{auth()->user()->email}}
+                                    {{auth('admin')->user()->email}}
                                 </div>
                             </div>
                             <a href="pages-profile.html" class="dropdown-item">
@@ -57,7 +57,7 @@
                             <a href="javascript:void(0);" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout').submit()">
                                 <span class="icon mdi mdi-power"></span> 退出
                             </a>
-                            <form action="{{route('logout')}}" method="post" id="logout">
+                            <form action="{{route('admin.logout')}}" method="post" id="logout">
                                 @csrf
                             </form>
                         </div>
