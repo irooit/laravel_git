@@ -18,7 +18,7 @@ return [
         "icon"       => "fa fa-navicon",
         'permission' => '权限标识',
         "menus"      => [
-            ["title" => "网站配置", "permission" => "权限标识", "url" => "链接地址", "menus" => [
+            ["title" => "网站配置", "icon" => "ft-lock", "permission" => "权限标识", "url" => "链接地址", "menus" => [
                 ["title" => "角色列表", "permission" => "role.indexs", "url" => route('role.index')]
             ]],
         ],

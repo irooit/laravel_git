@@ -18,7 +18,7 @@ return [
         "icon"       => "icon mdi mdi-border-all",
         'permission' => '权限标识',
         "menus"      => [
-            ["title" => "权限", "permission" => "权限标识", "url" => route('role.index')],
+            ["title" => "权限", "icon" => "ft-lock", "permission" => "权限标识", "url" => route('role.index')],
             [
                 "title" => "角色管理",
                 "permission" => "权限标识",
@@ -35,8 +35,8 @@ return [
         "icon"       => "icon mdi mdi-border-all",
         'permission' => '权限标识',
         "menus"      => [
-            ["title" => "网站配置", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "微信设置", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "网站配置", "icon" => "ft-lock", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "微信设置", "icon" => "ft-lock", "permission" => "权限标识", "url" => "链接地址"],
         ],
     ]
 ];

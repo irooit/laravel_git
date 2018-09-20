@@ -6,7 +6,7 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{route('admin')}}">
                         <img class="brand-logo" alt="stack admin logo" src="../../../app-assets/images/logo/stack-logo.png">
-                        <h2 class="brand-text">Stack</h2>
+                        <h2 class="brand-text">飞速度</h2>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">
