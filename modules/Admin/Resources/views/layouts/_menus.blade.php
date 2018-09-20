@@ -9,7 +9,7 @@
                 @foreach($submenu['menus'] as $value)
                 <ul class="sub-menu">
                     <li>
-                        <a href="ui-grid.html">{{$value['title']}}</a>
+                        <a href="{{$value['url']}}">{{$value['title']}}</a>
                     </li>
                 </ul>
                 @endforeach

@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin::index');
+        return view('admin::stackadmin.role.index');
     }
 
     /**

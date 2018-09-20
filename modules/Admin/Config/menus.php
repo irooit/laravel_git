@@ -18,8 +18,25 @@ return [
         "icon"       => "icon mdi mdi-border-all",
         'permission' => '权限标识',
         "menus"      => [
+            ["title" => "权限", "permission" => "权限标识", "url" => route('role.index')],
+            [
+                "title" => "角色管理",
+                "permission" => "权限标识",
+                "icon" => "ft-users",
+                "url" => "链接地址",
+                "menus" => [
+                    ["title" => "角色列表", "permission" => "role.index", "url" => route('role.index')]
+                ]
+            ],
+        ],
+    ],
+    'News' => [
+        "title" => "新闻管理",
+        "icon"       => "icon mdi mdi-border-all",
+        'permission' => '权限标识',
+        "menus"      => [
             ["title" => "网站配置", "permission" => "权限标识", "url" => "链接地址"],
             ["title" => "微信设置", "permission" => "权限标识", "url" => "链接地址"],
         ],
-    ],
+    ]
 ];

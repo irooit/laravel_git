@@ -15,7 +15,6 @@ class AdminController extends Controller
     public function index()
     {
         $menus = \HDModule::getMenus();
-       // dump($menus);
         return view('admin::index');
     }
 
