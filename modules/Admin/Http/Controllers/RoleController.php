@@ -5,6 +5,8 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\RoleRequest;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,25 +16,21 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin::stackadmin.role.index');
+        $roles = Role::get();
+        return view('admin::stackadmin.role.index', compact('roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('admin::create');
-    }
 
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
+        $create = Role::create(["title" => $request->post('title'), "name" => $request->post('name')]);
+        session()->flash('success', '角色添加成功');
+        return back();
     }
 
     /**
