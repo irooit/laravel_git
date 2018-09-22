@@ -34,6 +34,7 @@
                                 <th>角色名称</th>
                                 <th>添加时间</th>
                                 <th>修改时间</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,6 +45,25 @@
                                 <td>{{$v['title']}}</td>
                                 <td>{{$v['created_at']}}</td>
                                 <td>{{$v['updated_at']}}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{{route('role.permission', $v['id'])}}" class="btn btn-success">权限设置</a>
+                                        <button type="button" data-toggle="modal" data-target="#editRole{{$v['id']}}" class="btn btn-info">编辑角色</button>
+
+                                        <button type="button" class="btn btn-danger">删除角色</button>
+                                    </div>
+                                    @component('admin::stackadmin.components.modal.loginFormModal',
+    ['title' => '编辑角色', 'id' => "editRole{$v['id']}", 'method' => 'PUT', 'url' => route('role.update', "{$v['id']}")])
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="name">角色标识</label>
+                                            <input type="text" class="form-control" name="name" id="name" value="{{$v['name']}}" placeholder="必须为英文">
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="title">角色名称</label>
+                                            <input type="text" class="form-control" name="title" id="title" value="{{$v['title']}}" placeholder="请输入角色名称">
+                                        </fieldset>
+                                    @endcomponent
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>

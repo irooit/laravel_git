@@ -13,9 +13,11 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
+        $role = $this->route('role');
+        $param = $role ? $role->id: null;
         return [
-            "name" => "required|unique:roles",
-            "title" => "required|unique:roles"
+            "name" => "required|unique:roles,name,".$param,
+            "title" => "required|unique:roles,title,".$param
         ];
     }
 

@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/stackadmin/index.html');
+    //return view('welcome');
 });
 
 

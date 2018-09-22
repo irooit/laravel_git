@@ -12,7 +12,10 @@ return [
     [
         'group' => '文章管理',
         'permissions' => [
-            ['title' => '添加栏目', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
+            ['title' => '添加栏目', 'name' => 'Article:add_group', 'guard' => 'admin'],
+            ['title' => '添加文章', 'name' => 'Article:add_article', 'guard' => 'web'],
+            ['title' => '微信设置', 'name' => 'Admin:config-wechat', 'guard' => 'web'],
+            ['title' => '权限控制', 'name' => 'Admin:role-manage', 'guard' => 'admin'],
         ],
     ],
 ];

@@ -37,10 +37,7 @@ class RoleController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show()
-    {
-        return view('admin::show');
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -52,19 +49,35 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     * @param  Request $request
-     * @return Response
+     * 更新角色表
+     * @param RoleRequest $request
+     * @param Role $role
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request)
+    public function update(RoleRequest $request, Role $role)
     {
+        $role->update(['name' => $request->name, 'title' => $request -> title]);
+        session()->flash('success', '角色修改成功');
+        return back();
     }
 
+    /*public function update(RoleRequest $request)
+    {
+        $role = Role::findOrFail($request->route('role'))->fill($request->all())->save();
+        session()->flash('success', '角色修改成功');
+        return back();
+    }*/
+
     /**
-     * Remove the specified resource from storage.
-     * @return Response
+     *
      */
     public function destroy()
     {
+    }
+
+    public function permission(Role $role)
+    {
+        $roles = \HDModule::getPermissionByGuard('admin');
+        return view('admin::stackadmin.role.permission', compact('roles'));
     }
 }
