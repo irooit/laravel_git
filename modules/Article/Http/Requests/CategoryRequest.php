@@ -4,7 +4,7 @@ namespace Modules\Article\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Category extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -17,7 +17,8 @@ class Category extends FormRequest
         $data = $category ? $category->id : null;
         return [
             'name' => 'required|unique:categories,name,'.$data,
-            "title" => "required"
+            "title" => "required",
+            'pid' => 'required'
         ];
     }
 
@@ -26,7 +27,7 @@ class Category extends FormRequest
         return [
             "title.required" => "栏目名称不能为空",
             "title.unique" => "栏目名称已经存在",
-            "name.required" => "栏目标识不能为空",
+            "name.required" => "栏目标识不能为空"
         ];
     }
     /**

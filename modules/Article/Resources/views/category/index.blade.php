@@ -16,7 +16,7 @@
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
                             <li>
-                                <button type="button" class="btn mr-1 mb-1 btn-success" data-toggle="modal" data-target="#addRole"><i class="fa fa-plus"></i>添加栏目</button>
+                                <button type="button" class="btn mr-1 mb-1 btn-success" data-toggle="modal" data-target="#addCategory"><i class="fa fa-plus"></i>添加栏目</button>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +78,7 @@
     </div>
     <!-- Both borders end -->
     @component('admin::stackadmin.components.modal.loginFormModal',
-    ['title' => '添加栏目', 'id' => 'addRole', 'method' => 'POST', 'url' => route('category.store')])
+    ['title' => '添加栏目', 'id' => 'addCategory', 'method' => 'POST', 'url' => route('category.store')])
         <fieldset class="form-group floating-label-form-group">
             <label for="name">栏目标识</label>
             <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}" placeholder="必须为英文">
@@ -89,7 +89,7 @@
         </fieldset>
         <fieldset class="form-group floating-label-form-group">
             <label for="pid">父级栏目</label>
-            <select class="form-control" id="pid">
+            <select class="form-control" id="pid" name="pid">
                 <option selected="">Default select options</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>

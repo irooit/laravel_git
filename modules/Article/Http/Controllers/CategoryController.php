@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Article\Entities\Category;
+use Modules\Article\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -33,8 +34,12 @@ class CategoryController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request, Category $category)
     {
+        $category->fill($request->all());
+        $category->save();
+        session()->flash('success', '保存成功');
+        return back();
     }
 
     /**
