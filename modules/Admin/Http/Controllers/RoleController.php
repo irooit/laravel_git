@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::get();
+        $roles = Role::where('name', '<>', config('hd_module.webmaster'))->get();
         return view('admin::stackadmin.role.index', compact('roles'));
     }
 
@@ -69,10 +69,13 @@ class RoleController extends Controller
     }*/
 
     /**
-     *
+     * @param Role $role
      */
-    public function destroy()
+    public function destroy(Role $role)
     {
+        $role->delete();
+        session()->flash('success', '删除成功');
+        return redirect(route('role.index'));
     }
 
     public function permission(Role $role)

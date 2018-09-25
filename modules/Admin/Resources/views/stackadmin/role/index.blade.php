@@ -50,7 +50,10 @@
                                         <a href="{{route('role.permission', $v['id'])}}" class="btn btn-success">权限设置</a>
                                         <button type="button" data-toggle="modal" data-target="#editRole{{$v['id']}}" class="btn btn-info">编辑角色</button>
 
-                                        <button type="button" class="btn btn-danger">删除角色</button>
+                                        <button type="button" class="btn btn-danger" onclick="deleteRole({{$v['id']}}, this)">删除角色</button>
+                                        <form action="{{route('role.destroy', $v['id'])}}" method="post" hidden>
+                                            @csrf @method('DELETE')
+                                        </form>
                                     </div>
                                     @component('admin::stackadmin.components.modal.loginFormModal',
     ['title' => '编辑角色', 'id' => "editRole{$v['id']}", 'method' => 'PUT', 'url' => route('role.update', "{$v['id']}")])
@@ -90,6 +93,13 @@
     <script src="/app-assets/vendors/js/extensions/toastr.min.js" type="text/javascript"></script>
 @endsection
 @section('footer')
+    <script type="text/javascript">
+        function deleteRole(id, bt) {
+            if(confirm('确定删除角色吗？')){
+              $(bt).next('form').trigger('submit')
+            }
+        }
+    </script>
     @if(session()->has('success'))
         <script type="text/javascript">
             toastr.info('{{session()->get('success')}}', 'Success!', {positionClass: 'toast-top-center', containerId: 'toast-top-center'});
