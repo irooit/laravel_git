@@ -95,7 +95,6 @@
             toastr.info('{{session()->get('success')}}', 'Success!', {positionClass: 'toast-top-center', containerId: 'toast-top-center'});
         </script>
     @endif
-    {{--<script src="/app-assets/js/scripts/extensions/toastr.js" type="text/javascript"></script>--}}
     <script src="/app-assets/vendors/js/tables/jsgrid/jsgrid.min.js"></script>
     <script src="/app-assets/vendors/js/tables/jsgrid/griddata.js"></script>
     <script src="/app-assets/js/scripts/modal/components-modal.js"></script>

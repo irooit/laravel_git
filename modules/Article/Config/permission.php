@@ -12,7 +12,7 @@ return [
     [
         'group' => '微信管理',
         'permissions' => [
-            ['title' => '微信列表', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
+            ['title' => '微信列表', 'name' => 'Wechat:list', 'guard' => 'admin'],
         ],
     ],
 ];

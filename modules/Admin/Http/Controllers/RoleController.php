@@ -80,4 +80,11 @@ class RoleController extends Controller
         $roles = \HDModule::getPermissionByGuard('admin');
         return view('admin::stackadmin.role.permission', compact('roles', 'role'));
     }
+
+    public function permissionStore(Request $request, Role $role)
+    {
+        $role->syncPermissions($request->permissions);
+        session()->flash('success', '权限修改成功');
+        return back();
+    }
 }
