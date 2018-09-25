@@ -31,12 +31,13 @@ class CategoryController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  Request $request
-     * @return Response
+     * @param CategoryRequest $request
+     * @param Category $category
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CategoryRequest $request, Category $category)
     {
-        $category->fill($request->all());
+        $category->fill(['name' => $request->name, 'title' => $request -> title, 'pid' => $request->pid]);
         $category->save();
         session()->flash('success', '保存成功');
         return back();

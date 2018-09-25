@@ -55,7 +55,7 @@
                                             @csrf @method('DELETE')
                                         </form>
                                     </div>
-                                    @component('admin::stackadmin.components.modal.loginFormModal',
+                                    @component('admin::stackadmin.components.modal.inputFormModal',
     ['title' => '编辑角色', 'id' => "editRole{$v['id']}", 'method' => 'PUT', 'url' => route('role.update', "{$v['id']}")])
                                         <fieldset class="form-group floating-label-form-group">
                                             <label for="name">角色标识</label>

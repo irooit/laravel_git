@@ -48,9 +48,9 @@
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="{{route('role.permission', $v['id'])}}" class="btn btn-success">权限设置</a>
-                                            <button type="button" data-toggle="modal" data-target="#editRole{{$v['id']}}" class="btn btn-info">编辑角色</button>
+                                            <button type="button" data-toggle="modal" data-target="#editRole{{$v['id']}}" class="btn btn-info">编辑栏目</button>
 
-                                            <button type="button" class="btn btn-danger" onclick="deleteRole({{$v['id']}}, this)">删除角色</button>
+                                            <button type="button" class="btn btn-danger" onclick="deleteRole({{$v['id']}}, this)">删除栏目</button>
                                             <form action="{{route('role.destroy', $v['id'])}}" method="post" hidden>
                                                 @csrf @method('DELETE')
                                             </form>
@@ -77,23 +77,23 @@
         </div>
     </div>
     <!-- Both borders end -->
-    @component('admin::stackadmin.components.modal.loginFormModal',
+    @component('admin::stackadmin.components.modal.inputFormModal',
     ['title' => '添加栏目', 'id' => 'addCategory', 'method' => 'POST', 'url' => route('category.store')])
-        <fieldset class="form-group floating-label-form-group">
-            <label for="name">栏目标识</label>
-            <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}" placeholder="必须为英文">
-        </fieldset>
         <fieldset class="form-group floating-label-form-group">
             <label for="title">栏目名称</label>
             <input type="text" class="form-control" name="title" id="title" value="{{old('title')}}" placeholder="请输入栏目名称">
         </fieldset>
         <fieldset class="form-group floating-label-form-group">
+            <label for="name">栏目标识</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}" placeholder="必须为英文">
+        </fieldset>
+        <fieldset class="form-group floating-label-form-group">
             <label for="pid">父级栏目</label>
             <select class="form-control" id="pid" name="pid">
-                <option selected="">Default select options</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="0">顶级栏目</option>
+                @foreach($categories as $k => $category)
+                <option value="{{$category['id']}}">{{$category['title']}}</option>
+                @endforeach
             </select>
         </fieldset>
     @endcomponent
