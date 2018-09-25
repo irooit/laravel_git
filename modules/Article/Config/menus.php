@@ -18,8 +18,13 @@ return [
         "icon"       => "fa fa-navicon",
         'permission' => '权限标识',
         "menus"      => [
-            ["title" => "栏目管理", "icon" => "ft-lock", "permission" => "权限标识", "url" => "链接地址", "menus" => [
-                ["title" => "角色列表", "permission" => "role.indexs", "url" => route('role.index')]
+            [
+                "title" => "栏目管理",
+                "icon" => "ft-lock",
+                "permission" => "category.index",
+                "url" => route('category.index'),
+                "menus" => [
+                    ["title" => "栏目列表", "permission" => "category.index", "url" => route('category.index')]
             ]],
         ],
     ],

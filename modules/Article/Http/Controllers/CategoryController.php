@@ -5,6 +5,7 @@ namespace Modules\Article\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Article\Entities\Category;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('article::index');
+        $categories = Category::get();
+        return view('article::category.index', compact('categories'));
     }
 
     /**
