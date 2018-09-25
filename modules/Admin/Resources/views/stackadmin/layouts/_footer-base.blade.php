@@ -1,3 +1,4 @@
+<script src="{{mix('js/app.js')}}"></script>
 <!-- BEGIN VENDOR JS-->
 <script src="../../../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->

@@ -9,7 +9,7 @@
     <div class="content-wrapper">
         <div class="content-header row">
         </div>
-        <div class="content-body">
+        <div class="content-body" id="app">
             @yield('content')
         </div>
     </div>

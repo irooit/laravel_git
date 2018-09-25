@@ -16,5 +16,11 @@ class AdminSeeder extends Seeder
         $user->name = "admin";
         $user->email = "hongcoo@qq.com";
         $user->save();
+        \Spatie\Permission\Models\Role::create([
+            'title' => '管理员',
+            'name' => 'admin',
+            'guard_name' => 'admin'
+        ]);
+        $user->assignRole('admin');
     }
 }
