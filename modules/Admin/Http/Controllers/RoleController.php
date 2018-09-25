@@ -78,6 +78,6 @@ class RoleController extends Controller
     public function permission(Role $role)
     {
         $roles = \HDModule::getPermissionByGuard('admin');
-        return view('admin::stackadmin.role.permission', compact('roles'));
+        return view('admin::stackadmin.role.permission', compact('roles', 'role'));
     }
 }

@@ -10,9 +10,9 @@
  */
 return [
     [
-        'group' => '文章管理',
+        'group' => '微信管理',
         'permissions' => [
-            ['title' => '添加栏目', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
+            ['title' => '微信列表', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
         ],
     ],
 ];

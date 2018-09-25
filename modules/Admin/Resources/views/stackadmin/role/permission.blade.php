@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">权限设置</h4>
+            <h5 class="card-title">{{$role->title}}权限设置</h5>
         </div>
         <div class="card-content">
         @foreach($roles as $k => $module)
@@ -14,8 +14,8 @@
                 <h5>{{$rule['group']}}</h5>
                 @foreach($rule['permissions'] as $pk => $permission)
                     <div class="d-inline-block custom-control custom-checkbox mr-1">
-                    <input type="checkbox" class="custom-control-input" name="colorCheck" id="{{$permission['name']}}">
-            <label class="custom-control-label" for="{{$permission['name']}}">{{$permission['title']}}</label>
+                    <input type="checkbox" class="checkbox" name="colorCheck" id="{{$permission['name']}}">
+            <label class="checkbox" for="{{$permission['name']}}">{{$permission['title']}}</label>
         </div>
                 @endforeach
             </div>
