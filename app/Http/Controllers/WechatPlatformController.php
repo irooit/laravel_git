@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use EasyWeChat\Factory;
 use EasyWeChat\OpenPlatform\Application;
+use EasyWeChatComposer\EasyWeChat;
 use Illuminate\Http\Request;
 
 class WechatPlatformController extends Controller
@@ -13,6 +14,7 @@ class WechatPlatformController extends Controller
     public function __construct()
     {
         $this->openPlatform = app('wechat.open_platform');
+        //$this->openPlatform = Factory::openPlatform();
     }
     public function notify()
     {
