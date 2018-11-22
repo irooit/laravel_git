@@ -95,6 +95,7 @@ class WechatPlatformController extends Controller
     public function open()
     {
         dump($this->config);
+        dump(config('wechat.open_platform.default'));
         echo route('wechat.openCallback');
         return view('wechat.index');
     }
