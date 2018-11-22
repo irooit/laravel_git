@@ -47,7 +47,7 @@ class WechatPlatformController extends Controller
 
     public function auth(){
         $response = $this->openPlatform->getPreAuthorizationUrl(route('wechat.openCallback'));
-        return $response;
+        return redirect($response);
     }
 
     public function wxcallback(){
