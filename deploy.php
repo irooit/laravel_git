@@ -24,7 +24,6 @@ add('writable_dirs', []);
 // Hosts
 
 host('47.106.91.212')
-    ->stage('dev')
     ->user('irooit')
     ->port(22)
     ->identityFile('~/.ssh/irooit')
