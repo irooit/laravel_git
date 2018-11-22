@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class WechatPlatformController extends Controller
 {
+    protected $openPlatform;
+
+    public function __construct()
+    {
+        $this->openPlatform = Factory::openPlatform(config('wechat.open_platform'));
+    }
     public function notify()
     {
         $options = ['open_platform' => config('wechat.open_platform')];
@@ -43,9 +49,7 @@ class WechatPlatformController extends Controller
     }
 
     public function auth(){
-        $options = ['open_platform' => config('wechat.open_platform')];
-        $openPlatform = Factory::openPlatform($options['open_platform']);
-        $response = $openPlatform->getPreAuthorizationUrl('http://open.feisudu.com/wxcallback');
+        $response = $this->openPlatform->getPreAuthorizationUrl('http://open.feisudu.com/wxcallback');
         return $response;
     }
 
