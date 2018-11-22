@@ -86,6 +86,7 @@ return [
              'secret'  => 'ca9dab052ab97253329355114508bc45',
              'token'   => 'sHEe5l03S4ie5k4bAoS3l8e2b03aL284',
              'aes_key' => 'YLZcra7zIRaZRRL8gzNNIrwzrRn9198w0A90288g2Lk',
+             'use_laravel_cache' => true
          ],
      ],
 
