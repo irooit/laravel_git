@@ -55,9 +55,9 @@ class WechatPlatformController extends Controller
     public function wxcallback(){
         $server = $this->openPlatform->server;
         $res = $this->openPlatform->handleAuthorize();
-
-        $info = $this->openPlatform->getAuthorizer();
         dd($res);
+        $info = $this->openPlatform->getAuthorizer();
+
         return $server->serve();
 
         $options = ['open_platform' => config('wechat.open_platform')];
