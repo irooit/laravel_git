@@ -48,7 +48,7 @@ return [
              'uri' => 'serve',
              'action' => Overtrue\LaravelWeChat\Controllers\OpenPlatformController::class,
              'attributes' => [
-                 'prefix' => 'open-platform',
+                 'prefix' => 'wechat',
                  'middleware' => null,
              ],
          ],
