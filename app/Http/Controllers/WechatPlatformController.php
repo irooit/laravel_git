@@ -9,11 +9,9 @@ use Illuminate\Http\Request;
 class WechatPlatformController extends Controller
 {
     protected $openPlatform;
-    protected $config;
 
     public function __construct()
     {
-        $this->config = \Config::get('wechat.open_platform.default');
         $this->openPlatform = app('wechat.open_platform');
     }
     public function notify()
