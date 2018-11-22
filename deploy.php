@@ -34,6 +34,11 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
+// 覆盖 recipe/laravel 里默认的 artisan:cache:clear 任务，部署时不清缓存
+task('artisan:cache:clear', function () {
+    return true;
+});
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
