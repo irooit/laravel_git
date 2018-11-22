@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 class WechatPlatformController extends Controller
 {
     protected $openPlatform;
+    protected $config;
 
     public function __construct()
     {
-        $this->openPlatform = Factory::openPlatform(config('wechat.open_platform.default'));
+        $this->config = \Config::get('wechat.open_platform.default');
+        $this->openPlatform = Factory::openPlatform($this->config);
     }
     public function notify()
     {
@@ -92,7 +94,7 @@ class WechatPlatformController extends Controller
 
     public function open()
     {
-        dump(config('wechat.open_platform'));
+        dump($this->config);
         echo route('wechat.openCallback');
         return view('wechat.index');
     }
