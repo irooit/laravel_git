@@ -13,8 +13,9 @@ class TestController extends Controller
 
         $set = \Cache::set('hello', 'hello world', Carbon::now()->addSeconds(10000));
         $get = \Cache::get('hello');
+
+        echo $this->getResult(100.338);
         dd($get);
-        //echo $this->getResult(100.338);
     }
 
     function getResult($input):int
