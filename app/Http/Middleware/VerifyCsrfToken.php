@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        'wechat/serve',
         'api/v1/wechat'  //排除微信接口
     ];
 }
