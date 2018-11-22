@@ -14,7 +14,7 @@ class WechatPlatformController extends Controller
     public function __construct()
     {
         $this->config = \Config::get('wechat.open_platform.default');
-        $this->openPlatform = Factory::openPlatform($this->config);
+        $this->openPlatform = app('wechat.open_platform');
     }
     public function notify()
     {
