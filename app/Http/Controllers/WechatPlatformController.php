@@ -12,7 +12,7 @@ class WechatPlatformController extends Controller
 
     public function __construct()
     {
-        $this->openPlatform = Factory::openPlatform(config('wechat.open_platform'));
+        $this->openPlatform = Factory::openPlatform(config('wechat.open_platform.default'));
     }
     public function notify()
     {
@@ -92,6 +92,7 @@ class WechatPlatformController extends Controller
 
     public function open()
     {
+        dump(config('wechat.open_platform'));
         echo route('wechat.openCallback');
         return view('wechat.index');
     }
