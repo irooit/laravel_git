@@ -21,6 +21,11 @@ class AdminSeeder extends Seeder
             'name' => 'webmaster',
             'guard_name' => 'admin'
         ]);
+        \Spatie\Permission\Models\Role::create([
+            'title' => '管理员',
+            'name' => 'admin',
+            'guard_name' => 'admin'
+        ]);
         $user->assignRole('admin');
     }
 }

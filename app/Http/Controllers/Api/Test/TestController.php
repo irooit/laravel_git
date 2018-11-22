@@ -9,7 +9,17 @@ use App\Http\Controllers\Controller;
 class TestController extends Controller
 {
     use Helpers;
+
+    /**
+     * Hello world
+     */
+
     public function index()
+    {
+        dump('Hello world');
+    }
+
+    public function index1()
     {
         $url = 'https://open.uzanpaidang.com/addons/quickcredit/css/style.css?v=203';
         $data = file_get_contents($url);

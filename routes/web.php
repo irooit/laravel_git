@@ -17,6 +17,8 @@ Route::get('/', function () {
 });
 
 
+
+
 /*Route::group(['prefix' => 'admin', 'middleware' => 'auth:web'], function () {
     Route::get('/', function () {
         return view('welcome');
@@ -27,3 +29,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/factory', 'FactoryController@index')->name('factory');
+Route::get('/repo', 'RepoController@index');
+Route::get('/test', 'TestController@index');
