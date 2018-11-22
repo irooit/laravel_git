@@ -16,12 +16,9 @@ class WechatPlatformController extends Controller
     }
     public function notify()
     {
-        $options = ['open_platform' => config('wechat.open_platform')];
-        $openPlatform = Factory::openPlatform($options['open_platform']);
-
-
-        $server = $openPlatform->server;
-
+        $server = $this->openPlatform->server;
+        $response = $server->serve();
+        return $response;
         $server->setMessageHandler(function($event) use($openPlatform){
             switch ($event->InfoType) {
                 case Guard::EVENT_AUTHORIZED: // 授权成功
@@ -49,11 +46,14 @@ class WechatPlatformController extends Controller
     }
 
     public function auth(){
-        $response = $this->openPlatform->getPreAuthorizationUrl('http://open.feisudu.com/wxcallback');
+        $response = $this->openPlatform->getPreAuthorizationUrl(route('wechat.openCallback'));
         return $response;
     }
 
     public function wxcallback(){
+        $server = $this->openPlatform->server;
+        return $server->serve();
+
         $options = ['open_platform' => config('wechat.open_platform')];
         $app = new Application($options);
         $openPlatform = $app->open_platform;
@@ -92,6 +92,7 @@ class WechatPlatformController extends Controller
 
     public function open()
     {
+        echo route('wechat.openCallback');
         return view('wechat.index');
     }
 }
